@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-10-21T21:00:00Z",
+  "topics": {
+    "T11": {
+      "attempts": 12,
+      "correct": 9,
+      "mastery": "mastered",
+      "by_level": {
+        "Easy": {
+          "a": 4,
+          "c": 4
+        },
+        "Medium": {
+          "a": 6,
+          "c": 4
+        },
+        "Hard": {
+          "a": 2,
+          "c": 1
+        }
+      }
+    }
+  },
+  "template_stats": {
+    "si_multiplier_relation": {
+      "a": 15,
+      "c": 12
+    }
+  }
+}
