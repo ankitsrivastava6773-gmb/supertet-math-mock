@@ -68,6 +68,7 @@ from engine.templates.t11_ci_compound import CIThreeYearCompoundAmountTemplate
 from engine.templates.t16_identities_cubic_hard import AlgCubicReciprocalIdentityTemplate
 from engine.templates.t15_mensuration_hard_shapes import Mens2DSquareInscribedCircleShadedTemplate
 from engine.templates.t01_hard_divisors_sum import NumSumOfAllDivisorsTemplate
+from test_all_templates import TEMPLATES as ALL_MASTER_TEMPLATE_CLASSES
 
 MISCONCEPTION_EXPLANATIONS = {
     # T01 Numbers
@@ -907,71 +908,7 @@ AUTHENTIC_PYQ_VISUAL_QUESTIONS = [
 ]
 
 def generate_master_question_bank():
-    templates = [
-        # Batch 1: Foundations
-        NumSumOfPrimesTemplate(),
-        GeomTrapeziumMidpointTemplate(),
-        GeomInscribedRegularPolygonTemplate(),
-        AlgPowerIndicesRelationTemplate(),
-        StatEmpiricalFormulaTemplate(),
-        # Batch 2: Commercial Math
-        ProfitLossOnSPTemplate(),
-        PctConsumptionPriceChangeTemplate(),
-        CISITwoYearDifferenceTemplate(),
-        LCMHCFProductRelationTemplate(),
-        MarkedPriceDiscountProfitTemplate(),
-        # Batch 3: Core Syllabus
-        RatioPartitionAndShareTemplate(),
-        AvgReplacementPersonTemplate(),
-        WorkTimeCombinedDaysTemplate(),
-        Mens2DRectangleOuterPathTemplate(),
-        Mens2DEquilateralTriangleTemplate(),
-        # Batch 4: Advanced
-        AlgReciprocalSumPowerTemplate(),
-        Mens3DSphereRecastTemplate(),
-        NumDivisibilityRulesTemplate(),
-        # Batch 5: Number Systems
-        NumRecurringDecimalFractionTemplate(),
-        NumBODMASBracketSimplificationTemplate(),
-        NumFractionGreatestSmallestTemplate(),
-        # Batch 6: Visual & Figure Engine
-        DataPieChartTemplate(),
-        GeomParallelLinesTransversalTemplate(),
-        # Batch 7: Commercial Variants
-        SIMultiplierRelationTemplate(),
-        SIRateShiftPrincipalTemplate(),
-        # Batch 8: Full Syllabus Expansions
-        LCMBellsRingingTogetherTemplate(),
-        WorkChainRuleMenDaysTemplate(),
-        AlgLinearItemsCostTemplate(),
-        GeomCircleSecantTangentTemplate(),
-        GeomTriangleIncenterAngleTemplate(),
-        PVPlaceFaceValueDiffTemplate(),
-        Mens2DRhombusSideDiagTemplate(),
-        Mens3DCubeCuttingTemplate(),
-        NumDivisorsCountTemplate(),
-        NumPrimeFactorsExponentsSumTemplate(),
-        TimeCalendarOddDaysTemplate(),
-        # Batch 9: Difficulty Balancing (18 New Templates)
-        NumDecimalsAdditionPlaceTemplate(),
-        PctBasicValueCalcTemplate(),
-        PLDirectProfitCalcTemplate(),
-        SIDirectInterestCalcTemplate(),
-        RatioTwoPartsSplitTemplate(),
-        AvgFiveNumbersDirectTemplate(),
-        GeomAnglesComplementarySupplementaryTemplate(),
-        Mens2DRectanglePerimeterAreaTemplate(),
-        AlgIdentityFourABTemplate(),
-        StatMedianRawDataTemplate(),
-        NumDivisibilityComposite72Template(),
-        NumFractionGardenWordProblemTemplate(),
-        NumBODMASComplexEvaluationTemplate(),
-        AlgTwoVariableLinearSystemTemplate(),
-        CIThreeYearCompoundAmountTemplate(),
-        AlgCubicReciprocalIdentityTemplate(),
-        Mens2DSquareInscribedCircleShadedTemplate(),
-        NumSumOfAllDivisorsTemplate()
-    ]
+    templates = [cls() for cls in ALL_MASTER_TEMPLATE_CLASSES]
     
     all_questions = []
     q_counter = 1
@@ -980,7 +917,7 @@ def generate_master_question_bank():
     
     for t in templates:
         seen_hashes = set()
-        count = 15  # 15 instances per template -> 540 questions
+        count = 8  # 8 instances per template across 114 archetypes -> ~912 questions
         success_for_t = 0
         for _ in range(count):
             try:
